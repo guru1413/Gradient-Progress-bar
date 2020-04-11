@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Frame xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+       mc:Ignorable="d"
+       Padding="0"
+       BackgroundColor="Orange"
+       HasShadow="False"
+       OutlineColor="Transparent"
+       BorderColor="Transparent"
+       x:Name="unprogressView"
+       x:Class="CustomProgressBar.GradientProgressBar">
+    <Grid Padding="0"
+          BackgroundColor="Transparent">
+        <yummy:PancakeView x:Name="progressView"
+                           BackgroundGradientAngle="90"
+                           IsClippedToBounds="True"
+                           Padding="0"
+                           HeightRequest="{Binding Source={x:Reference unprogressView},Path=Height}"
+                           CornerRadius="{Binding Source={x:Reference unprogressView},Path=CornerRadius}"
+                           BorderColor="Transparent"
+                           HorizontalOptions="Start"
+                           WidthRequest="0"
+                           BackgroundColor="Transparent"
+                           BackgroundGradientStartColor="{Binding GradientStartColor}"
+                           BackgroundGradientEndColor="{Binding GradientEndColor}" />
+        <Label x:Name="pLbl"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               FontSize="{Binding FontSize}"
+               TextColor="{Binding TextColor}">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="{Binding Percent}" />
+                    <Span Text="%" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+    </Grid>
+</Frame>

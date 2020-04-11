@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:CustomProgressBar"
+             mc:Ignorable="d"
+             Title="Gradient ProgressBar"
+             x:Class="CustomProgressBar.MainPage">
+
+    <StackLayout Padding="20"
+                 Spacing="20"
+                 VerticalOptions="CenterAndExpand">
+        <controls:GradientProgressBar HeightRequest="50"
+                                      CornerRadius="25"
+                                      BackgroundColor="Orange"
+                                      TextColor="Blue"
+                                      AlternativeTextColor="White"
+                                      FontSize="18"
+                                      Percentage="{Binding Source={x:Reference slider}, Path=Value}" />
+
+        <Slider x:Name="slider"
+                MaximumTrackColor="Black"
+                MinimumTrackColor="Pink"
+                Value="0" />
+
+    </StackLayout>
+
+</ContentPage>
